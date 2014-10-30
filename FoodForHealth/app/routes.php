@@ -67,11 +67,13 @@ Route::post('signin','SigninController@doLogin');
 Route::get('/','HomepageController@homepage');
 //Route::post('/','HomepageController@test');
 Route::get('info','InfoController@info');
-//Route::get('logout', array('uses' => 'HomeController@doLogout'));
+Route::get('editprofile','EditInfoController@show');
+Route::post('editprofile','EditInfoController@edit');
 Route::get('logout', 'SigninController@doLogout');
 
 Route::get('food','FoodDiaryController@showFirst');
-Route::post('food','FoodDiaryController@showFirst');
+Route::post('food','FoodDiaryController@search');
+
 
 
 
