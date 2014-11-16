@@ -8,7 +8,7 @@ class FoodDiseaseController extends BaseController
 		return View::make('FoodDisease');
 	}
 
-
+	//this method use to save relation of food and disease 
 	public function saveFoodDisease(){
 		$food =  Food::find(Input::get('food_id'));
 		$disease =  Disease::find(Input::get('disease_id'));

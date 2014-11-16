@@ -11,7 +11,7 @@ class Food extends Eloquent{
 	public static function search($keyword){
 		return static::where('name','LIKE','%'.$keyword.'%')->get() ;
 	}
-
+	//this method use to save food in database
 	public function savefood()
 	{
 		$data = new Food();
@@ -22,6 +22,7 @@ class Food extends Eloquent{
 	public function getID(){
 		return $this->id;
 	}
+	//this method use to delete food
 	public function deleteFood($id)
 	{
 		$data = Food::find($id);

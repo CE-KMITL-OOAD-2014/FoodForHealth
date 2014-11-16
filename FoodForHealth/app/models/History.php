@@ -3,6 +3,7 @@
 class History extends Eloquent{
 	protected $table="histories";
 
+	//this method use to keep  food and user to keep in database by id_user and id_food
 	public function addFood($id)
 	{
 		$data = new History();
@@ -11,14 +12,16 @@ class History extends Eloquent{
 		$data->save();
 	}
 	
+	//this method use to delete history that keep id_food and id_user
 	public function deleteHistory($id)
 	{
 		$data = History::find($id);
 		$data->delete();
 	}
+	//this method use to show what user/s eat in a day
 	public function showHistory(){
 		//$data = new History();
-		$date= date("Y-m-d H:i:s");
+		$date= date("Y-m-d H:i:s");//current date and time
 		$timestart=substr($date, 0, 11).'00:00:00';
 		$timeend=substr($date, 0, 11).'23:59:59';
 		if(isset(Auth::User()->id)){
@@ -27,19 +30,5 @@ class History extends Eloquent{
 		}
 	}
 
-	public function analysisDisease(){
-		$date= date("Y-m-d H:i:s");
-		$timestart=substr($date, 0, 11).'00:00:00';
-		$timeend=substr($date, 0, 11).'23:59:59';
-		$histories = History::where('id_user', '=', Auth::User()->id )->
-		whereBetween('updated_at', array($timestart, $timeend))->get();
-		$temp;
-		$disease;
-		for($i=0;$i<count($histories);$i++){
-					$temp[$i] = Food::find($histories[$i]->id_food);//keep id_food to $temp
-		}
-		for($y=0;$y<count($temp);$y++){
-		$disease[$y] = FoodDisease::where('food_id', '=', $temp[$j])->get();
-		}
-	}
+	
 }
