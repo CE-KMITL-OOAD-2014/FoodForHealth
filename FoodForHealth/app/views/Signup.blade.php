@@ -43,18 +43,18 @@
 											<tr>
 												<td>
 												<span class="label label-info" style=" width:100%; display:block;">
-												<font size = "4">Weight</font>
+												<font size = "4">Height</font>
 												</span>
 												</td>
-												<td><input type="number" step="0.01" name="weight" required> kg</td>
+												<td><input type="number" step="0.01" name="height" required> cm</td>
 											</tr>
 											<tr >
 												<td>
 												<span class="label label-info" style=" width:100%; display:block;">
-												<font size = "4">Hieght</font>
+												<font size = "4">Weight</font>
 												</span>
 												</td>
-												<td><input type="number" step="0.01" name="height" required> cm</td>
+												<td><input type="number" step="0.01" name="weight" required> kg</td>
 											</tr>
 											<tr >
 												<td>

@@ -2,18 +2,46 @@
 
 class FoodController extends BaseController
 {
-	public function showFirst()
+	public function show()
 	{
-		//return View::make('first');
 		return View::make('CreateFood');
 	}
 
-	public function postprofile()
+	public function savefood()
 	{
 		$data = new Food();
-		$data->name =Input::get('name'); 
-		$data->calories =Input::get('calories');
-		$data->save();
-		return Redirect::to('signup');
+		$data->savefood();
+		return Redirect::to('showfood');
+	}
+
+	public function deleteFood($id)
+	{
+		$data = new Food();
+		$data->deleteFood($id);
+		return Redirect::to('showfood');
+	}
+
+	public function post_search(){
+		$keyword = Input::get('keyword');
+
+		if(empty($keyword)){
+			return Redirect::to('showfood');
+		}
+		return View::make('results')->with('result',Food::search($keyword));
+	}
+	
+
+	public function search(){
+		return View::make('showSearch');
+	}
+
+	public function showDeleteSearch(){
+		$keyword = Input::get('keyword');
+
+		if(empty($keyword)){
+			return Redirect::to('searchfood');
+		}
+		return View::make('showSearchFoodToDelete')->with('result',Food::search($keyword));
+
 	}
 }

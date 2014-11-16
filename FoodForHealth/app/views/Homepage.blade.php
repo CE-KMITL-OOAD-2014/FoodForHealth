@@ -1,6 +1,8 @@
 <!-- Main (Home) section -->
 @extends('index')
 
+
+
 @section('body')
 
 	<div class="container">

@@ -19,6 +19,7 @@ class CreateHistories extends Migration {
 	    $table->integer('id_food')->unsigned();
 	    $table->foreign('id_food')->references('id')->on('foods');
 	    $table->foreign('id_user')->references('id')->on('users');
+	    $table->float('caloriesEatInOneDay')->unsigned()->nullable();
 		});
 	}
 

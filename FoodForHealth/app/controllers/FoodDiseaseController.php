@@ -2,20 +2,19 @@
 
 class FoodDiseaseController extends BaseController
 {
-	public function showFirst()
+	public function show()
 	{
 		//return View::make('first');
 		return View::make('FoodDisease');
 	}
 
-	public function postprofile()
-	{
-		$data = new FoodDisease();
-		$data->food_id =Input::get('food_id'); 
-		$data->disease_id =Input::get('disease_id');
-		// var_dump($data);
-		// exit();
-		$data->save();
+
+	public function saveFoodDisease(){
+		$food =  Food::find(Input::get('food_id'));
+		$disease =  Disease::find(Input::get('disease_id'));
+
+		$food->diseases()->save($disease);
+	
 		return Redirect::to('fooddisease');
 	}
 }

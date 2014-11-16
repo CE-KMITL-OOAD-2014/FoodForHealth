@@ -21,6 +21,7 @@ class CreateUsers extends Migration {
 			$table->integer('age');
 			$table->float('weight');
 			$table->float('height');
+			$table->float('caloriesForOneDay');
 			$table->string('username',30);
 			$table->string('password',70);
 			$table->string('email',50);

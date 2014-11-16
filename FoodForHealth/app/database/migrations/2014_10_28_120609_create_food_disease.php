@@ -12,7 +12,7 @@ class CreateFoodDisease extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('food_disease', function(Blueprint $table)
+		Schema::create('disease_food', function(Blueprint $table)
 
 		{
 			$table->integer('food_id')->unsigned();
@@ -31,7 +31,7 @@ class CreateFoodDisease extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('food_disease');
+		Schema::drop('disease_food');
 	}
 
 }

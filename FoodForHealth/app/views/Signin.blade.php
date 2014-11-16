@@ -2,8 +2,9 @@
 @extends('index')
 
 @section('body')
-
-<section class="section" >
+<!--<a href="{{ URL::to('signup') }}">Signup here</a>-->
+<!--<section class="section" >-->
+@if (Auth::guest())
 	<form action="{{ URL::to('signin') }}" method="POST">
 		<div class="container">
 
@@ -13,7 +14,7 @@
 				<div class="col-sm-8 col-sm-offset-2 ">
 					<div class="thumbnail">
 						<center>
-							<img src="assets/images/user.jpg" class="img-responsive img-circle" alt="Responsive image" >
+							<img src="images/user.jpg" class="img-responsive img-circle" alt="Responsive image" >
 						</center>
 						<br>
 						<form class="form-horizontal" role="form">
@@ -40,6 +41,8 @@
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
 								<button type="submit" class="btn btn-info" href="food">Sign in</button>
+								
+								<a href="{{ URL::to('signup') }}" class="btn btn-info" >Sign Up here</a>
 							</div>
 						</div>
 					</form>
@@ -48,19 +51,25 @@
 		</div>
 	</div>
 </form>
-@stop
+@else
 
-<!--<html>
-<head>
-	<title>testderja</title>
-</head>
-<body>
-	<form action="{{ URL::to('login') }}" method="POST">
-		username : 
-		<input type="text" name="username"><br>
-		password : 
-		<input type="password"name="password"><br>
-		<button type="submit">log in</button>
-	</form>
-</body>
-</html>
+	<div class="container">
+
+		<h2 class="text-center title">Sign In</h2>
+
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2 ">
+				<div class="thumbnail">
+						<center>
+							<img src="images/user.jpg" class="img-responsive img-circle" alt="Responsive image" >
+						</center>
+							<th>Now you are logging if you want to log out please </th>
+						<a href="{{ URL::to('logout') }}" class="btn btn-info" >Click here</a>
+						
+				</div>									
+			</div>
+		</div>
+	</div>
+</form>
+@endif
+@stop

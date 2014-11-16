@@ -15,9 +15,10 @@ class HomepageController extends BaseController {
 	|
 	*/
 
-	public function homepage()
+	
+	public function home()
 	{
-		return View::make('Homepage');
+		return View::make('Home');
 	}
 
 }

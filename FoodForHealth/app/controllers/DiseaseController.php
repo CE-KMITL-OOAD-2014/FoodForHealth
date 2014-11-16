@@ -2,17 +2,15 @@
 
 class DiseaseController extends BaseController
 {
-	public function showFirst()
+	public function show()
 	{
-		//return View::make('first');
 		return View::make('CreateDisease');
 	}
 
-	public function postprofile()
+	public function savediease()
 	{
 		$data = new Disease();
-		$data->name =Input::get('name'); 
-		$data->save();
-		return Redirect::to('signup');
+		$data->savediease(Input::get('name'));
+		return Redirect::to('createdisease');
 	}
 }

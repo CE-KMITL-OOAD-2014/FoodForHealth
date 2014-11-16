@@ -1,6 +1,6 @@
 <?php
 
-class InfoController extends BaseController {
+class UserController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -15,9 +15,19 @@ class InfoController extends BaseController {
 	|
 	*/
 
+	public function showInfoForEdit()
+	{
+		return View::make('EditInfo');
+	}
+	
+	public function edit(){
+		$id = Input::get('id');
+		$data = User::find($id);
+		$data->edit();
+		return Redirect::to('info');
+	}
 	public function info()
 	{
 		return View::make('Info');
 	}
-
 }

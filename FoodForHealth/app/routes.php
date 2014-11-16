@@ -53,30 +53,48 @@ Route::get('/', function()
 //	return View::make('simple', $data);
 
 //});
-Route::get('signup','SignupController@showFirst');
-Route::post('signup','SignupController@postprofile');
-Route::get('createfood','FoodController@showFirst');
-Route::post('createfood','FoodController@postprofile');
-Route::get('createdisease','DiseaseController@showFirst');
-Route::post('createdisease','DiseaseController@postprofile');
-Route::get('fooddisease','FoodDiseaseController@showFirst');
-Route::post('fooddisease','FoodDiseaseController@postprofile');
+Route::get('signup','SignupController@show');
+Route::post('signup','SignupController@signup');
+
+Route::get('createfood','FoodController@show');
+Route::post('createfood','FoodController@savefood');
+
+Route::get('createdisease','DiseaseController@show');
+Route::post('createdisease','DiseaseController@savediease');
+
+Route::get('fooddisease','FoodDiseaseController@show');
+Route::post('fooddisease','FoodDiseaseController@saveFoodDisease');
+
 Route::get('signin','SigninController@showSignin');
 Route::post('signin','SigninController@doLogin');
 
-Route::get('/','HomepageController@homepage');
+Route::get('/','HomepageController@home');
 //Route::post('/','HomepageController@test');
-Route::get('info','InfoController@info');
-Route::get('editprofile','EditInfoController@show');
-Route::post('editprofile','EditInfoController@edit');
+Route::get('info','AnalysisDiseaseController@analysisDisease');//-------------------------------------------------
+Route::get('editprofile','UserController@showInfoForEdit');
+
+Route::post('editprofile','UserController@edit');
 Route::get('logout', 'SigninController@doLogout');
 
-Route::get('food','FoodDiaryController@showFirst');
-Route::post('food','FoodDiaryController@search');
+//Route::get('food','FoodController@show');
+//Route::post('food','FoodController@search');
 
+Route::get('home','HomepageController@home');
+//Route::post('home','HomepageController@homepage');
 
+Route::get('homee' , function() {
+	return View::make('Home');
+});
 
-
+Route::post('results','FoodController@post_search');
+Route::get('food/{id}','HistoryController@addFoodInHistory');
+Route::get('showfood','HistoryController@showHistory');
+Route::post('searchfood','FoodController@showDeleteSearch');
+Route::get('searchfood','FoodController@search');
+Route::get('delete/{id}','FoodController@deleteFood');
+Route::get('showhistorytoedit','HistoryController@showForEditHistory');
+Route::get('deletehistory/{id}','HistoryController@deleteHistory');
+//Route::get('infoo','FoodDiaryController@analysisDisease');
 //Route::get('login',function()
 //	return View::make('login');
 //	);
